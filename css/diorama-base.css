@@ -64,6 +64,14 @@ h1 span {
   -ms-transform-style: preserve-3d;
   -o-transform-style: preserve-3d;
 }
+#diorama.guide {
+  background: linear-gradient(left, rgba(0, 0, 0, 0.1) 1.5%, transparent 1.5%, transparent 98.5%, rgba(0, 0, 0, 0.1) 98.5%), linear-gradient(rgba(0, 0, 0, 0.1) 1.5%, transparent 1.5%, transparent 98.5%, rgba(0, 0, 0, 0.1) 98.5%);
+  background: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.1) 1.5%, transparent 1.5%, transparent 98.5%, rgba(0, 0, 0, 0.1) 98.5%), -webkit-linear-gradient(rgba(0, 0, 0, 0.1) 1.5%, transparent 1.5%, transparent 98.5%, rgba(0, 0, 0, 0.1) 98.5%);
+  background: -moz-linear-gradient(left, rgba(0, 0, 0, 0.1) 1.5%, transparent 1.5%, transparent 98.5%, rgba(0, 0, 0, 0.1) 98.5%), -moz-linear-gradient(rgba(0, 0, 0, 0.1) 1.5%, transparent 1.5%, transparent 98.5%, rgba(0, 0, 0, 0.1) 98.5%);
+  background: -o-linear-gradient(left, rgba(0, 0, 0, 0.1) 1.5%, transparent 1.5%, transparent 98.5%, rgba(0, 0, 0, 0.1) 98.5%), -o-linear-gradient(rgba(0, 0, 0, 0.1) 1.5%, transparent 1.5%, transparent 98.5%, rgba(0, 0, 0, 0.1) 98.5%);
+  background: -ms-linear-gradient(left, rgba(0, 0, 0, 0.1) 1.5%, transparent 1.5%, transparent 98.5%, rgba(0, 0, 0, 0.1) 98.5%), -ms-linear-gradient(rgba(0, 0, 0, 0.1) 1.5%, transparent 1.5%, transparent 98.5%, rgba(0, 0, 0, 0.1) 98.5%);
+  background-size: 64px 64px;
+}
 .row {
   height: 64px;
   clear: both;
