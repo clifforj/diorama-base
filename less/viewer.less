@@ -1,0 +1,78 @@
+@import 'variables';
+
+html, body {
+  height: 100%;
+  width: 100%;
+  min-height: 100%;
+}
+
+body {
+  font-size: 100%;
+  margin: 0;
+  text-align: center;
+  min-width: (@dioramaGridWidth*@blockSize) + (3*@blockSize);
+  background: @pageBackground;
+  font-family: sans-serif;
+
+  &:before {
+    content: '';
+    width: 0;
+    font-size: 0;
+    height: 100%;
+    display: inline-block;
+    vertical-align: middle;
+  }
+}
+
+h1 {
+  position: absolute;
+  bottom: 0;
+  display: block;
+  right: 0;
+  padding: 15px;
+  margin: 0;
+  font-weight: normal;
+  font-size: 2.5em;
+}
+
+h1 small {
+  font-size: 0.7em;
+  color: #888;
+}
+
+h1 span {
+  position: absolute;
+  padding: 0;
+  margin: 0;
+  font-size: .3em;
+  bottom: 5px;
+  right: 0;
+  padding-right: 10px;
+  color: #888;
+}
+
+#diorama {
+  width: (@blockSize*@dioramaGridWidth);
+  height: (@blockSize*@dioramaGridDepth);
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  .transform(rotateX(60deg) rotateZ(-28deg));
+}
+
+#diorama, .layer {
+  .preserve-3d();
+}
+
+.row {
+  height: @blockSize;
+  clear: both;
+}
+
+.layer {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  text-align: left;
+  margin: 0 auto;
+}
