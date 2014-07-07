@@ -6,6 +6,22 @@
        -o-transform: @transform;
 }
 
+.transform-origin(@origin) {
+  transform-origin: @origin;
+  -webkit-transform-origin: @origin;
+  -moz-transform-origin: @origin;
+  -ms-transform-origin: @origin;
+  -o-transform-origin: @origin;
+}
+
+.box-shadow(@shadow) {
+          box-shadow: @shadow;
+  -webkit-box-shadow: @shadow;
+     -mox-box-shadow: @shadow;
+      -ms-box-shadow: @shadow;
+       -o-box-shadow: @shadow;
+}
+
 .preserve-3d() {
           transform-style: preserve-3d;
   -webkit-transform-style: preserve-3d;

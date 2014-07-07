@@ -90,3 +90,28 @@ h1 span {
   text-align: left;
   margin: 0 auto;
 }
+
+.layer:nth-child(1) {
+  -webkit-transform: translateZ(128px);
+  -moz-transform: translateZ(128px);
+}
+
+.layer:nth-child(2) {
+  -webkit-transform: translateZ(64px);
+  -moz-transform: translateZ(64px);
+}
+
+.layer:nth-child(3), .layer.base {
+  -webkit-transform: translateZ(0px);
+  -moz-transform: translateZ(0px);
+}
+
+.layer:nth-child(4) {
+  -webkit-transform: translateZ(-64px);
+  -moz-transform: translateZ(-64px);
+}
+
+.layer:nth-child(5) {
+  -webkit-transform: translateZ(-128px);
+  -moz-transform: translateZ(-128px);
+}
