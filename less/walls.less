@@ -1,0 +1,31 @@
+@import 'variables';
+
+.wall {
+  height: 192px;
+  width: 100%;
+
+  float: left;
+  position: absolute;
+
+  background: @wallDefaultBackground;
+
+  .transform(rotateX(-90deg) translateY(-192px));
+  .transform-origin(0 0);
+  .box-shadow(@wallRightShadow);
+}
+
+.wall.bottom {
+  bottom: -50%;
+}
+
+.wall.left, .wall.right {
+  .transform(translateX(-1px) rotateY(-90deg) rotateZ(90deg) translateY(-192px));
+  .box-shadow(@wallLeftShadow);
+  width: @blockSize*@dioramaGridDepth;
+}
+
+.wall.right {
+  .transform(rotateY(90deg) rotateZ(-90deg) translateX(192px));
+  .transform-origin(100% 100%);
+  right: 0;
+}

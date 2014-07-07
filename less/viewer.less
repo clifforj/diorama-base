@@ -83,6 +83,16 @@ h1 span {
   clear: both;
 }
 
+.row-positions(@dioramaGridDepth);
+
+.row-positions(@n, @i: 0) when (@i =< @n) {
+  .row.pos-@{i} {
+    position: absolute;
+    top: @i*@blockSize;
+  }
+  .row-positions(@n, (@i + 1));
+}
+
 .layer {
   position: absolute;
   width: 100%;
