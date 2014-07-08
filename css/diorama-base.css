@@ -111,26 +111,54 @@ h1 span {
   text-align: left;
   margin: 0 auto;
 }
-.layer:nth-child(1) {
-  -webkit-transform: translateZ(128px);
-  -moz-transform: translateZ(128px);
+.layer.base {
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  -moz-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  -o-transform: translateZ(0);
 }
-.layer:nth-child(2) {
+.layer.above-1 {
+  transform: translateZ(64px);
   -webkit-transform: translateZ(64px);
   -moz-transform: translateZ(64px);
+  -ms-transform: translateZ(64px);
+  -o-transform: translateZ(64px);
 }
-.layer:nth-child(3),
-.layer.base {
-  -webkit-transform: translateZ(0px);
-  -moz-transform: translateZ(0px);
+.layer.above-2 {
+  transform: translateZ(128px);
+  -webkit-transform: translateZ(128px);
+  -moz-transform: translateZ(128px);
+  -ms-transform: translateZ(128px);
+  -o-transform: translateZ(128px);
 }
-.layer:nth-child(4) {
+.layer.above-3 {
+  transform: translateZ(192px);
+  -webkit-transform: translateZ(192px);
+  -moz-transform: translateZ(192px);
+  -ms-transform: translateZ(192px);
+  -o-transform: translateZ(192px);
+}
+.layer.above-4 {
+  transform: translateZ(256px);
+  -webkit-transform: translateZ(256px);
+  -moz-transform: translateZ(256px);
+  -ms-transform: translateZ(256px);
+  -o-transform: translateZ(256px);
+}
+.layer.below-1 {
+  transform: translateZ(-64px);
   -webkit-transform: translateZ(-64px);
   -moz-transform: translateZ(-64px);
+  -ms-transform: translateZ(-64px);
+  -o-transform: translateZ(-64px);
 }
-.layer:nth-child(5) {
+.layer.below-2 {
+  transform: translateZ(-128px);
   -webkit-transform: translateZ(-128px);
   -moz-transform: translateZ(-128px);
+  -ms-transform: translateZ(-128px);
+  -o-transform: translateZ(-128px);
 }
 .panel,
 .block,

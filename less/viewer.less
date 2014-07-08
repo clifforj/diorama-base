@@ -101,27 +101,24 @@ h1 span {
   margin: 0 auto;
 }
 
-.layer:nth-child(1) {
-  -webkit-transform: translateZ(128px);
-  -moz-transform: translateZ(128px);
+.layer.base {
+  .transform(translateZ(0));
 }
 
-.layer:nth-child(2) {
-  -webkit-transform: translateZ(64px);
-  -moz-transform: translateZ(64px);
+.layer-positions-above(@dioramaLevelsAboveBase);
+
+.layer-positions-above(@n, @i: 1) when (@i =< @n) {
+  .layer.above-@{i} {
+    .transform(translateZ(@i*@blockSize));
+  }
+  .layer-positions-above(@n, (@i + 1));
 }
 
-.layer:nth-child(3), .layer.base {
-  -webkit-transform: translateZ(0px);
-  -moz-transform: translateZ(0px);
-}
+.layer-positions-below(@dioramaLevelsBelowBase);
 
-.layer:nth-child(4) {
-  -webkit-transform: translateZ(-64px);
-  -moz-transform: translateZ(-64px);
-}
-
-.layer:nth-child(5) {
-  -webkit-transform: translateZ(-128px);
-  -moz-transform: translateZ(-128px);
+.layer-positions-below(@n, @i: 1) when (@i =< @n) {
+  .layer.below-@{i} {
+    .transform(translateZ(@i*@blockSize * -1));
+  }
+  .layer-positions-below(@n, (@i + 1));
 }
