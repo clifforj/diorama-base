@@ -1,0 +1,39 @@
+@-webkit-keyframes squishy {
+  50% {
+    .transform(rotateY(-90deg) translateX(@blockSize*0.9) rotateY(90deg));
+  }
+}
+
+@-webkit-keyframes squishy-half {
+  50% {
+    .transform(rotateY(-90deg) translateX(@blockSize/2 * 0.9) rotateY(90deg));
+  }
+}
+
+.block.animate-squishy {
+  .animation(squishy 5s .0s ease-in-out infinite);
+}
+
+.block.half.animate-squishy {
+  .animation(squishy-half 5s .0s ease-in-out infinite);
+}
+
+@-webkit-keyframes squishy-right {
+  50% {
+    .transform(rotateZ(90deg) translateX(100%) translateX(-1px) rotateZ(-90deg) rotateX(-90deg) scale(1,.9) );
+  }
+}
+
+.block.animate-squishy:after {
+  .animation(squishy-right 5s .0s ease-in-out infinite);
+}
+
+@-webkit-keyframes squishy-left {
+  50% {
+    .transform(rotateX(-90deg) rotateY(90deg) translateX(-100%) scale(1,.9));
+  }
+}
+
+.block.animate-squishy:before {
+  .animation(squishy-left 5s .0s ease-in-out infinite);
+}

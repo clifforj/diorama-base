@@ -178,7 +178,7 @@ h1 span {
   content: '';
   position: absolute;
   height: 64px;
-  width: 65px;
+  width: 64px;
 }
 .panel,
 .block,
@@ -199,16 +199,17 @@ h1 span {
 }
 .block:after,
 .entity:after {
-  transform: rotateX(-90deg) translateY(100%);
-  -webkit-transform: rotateX(-90deg) translateY(100%);
-  -moz-transform: rotateX(-90deg) translateY(100%);
-  -ms-transform: rotateX(-90deg) translateY(100%);
-  -o-transform: rotateX(-90deg) translateY(100%);
-  transform-origin: 100% 100%;
-  -webkit-transform-origin: 100% 100%;
-  -moz-transform-origin: 100% 100%;
-  -ms-transform-origin: 100% 100%;
-  -o-transform-origin: 100% 100%;
+  width: 65px;
+  transform: rotateZ(90deg) translateX(100%) translateX(-1px) rotateZ(-90deg) rotateX(-90deg);
+  -webkit-transform: rotateZ(90deg) translateX(100%) translateX(-1px) rotateZ(-90deg) rotateX(-90deg);
+  -moz-transform: rotateZ(90deg) translateX(100%) translateX(-1px) rotateZ(-90deg) rotateX(-90deg);
+  -ms-transform: rotateZ(90deg) translateX(100%) translateX(-1px) rotateZ(-90deg) rotateX(-90deg);
+  -o-transform: rotateZ(90deg) translateX(100%) translateX(-1px) rotateZ(-90deg) rotateX(-90deg);
+  transform-origin: 0 0;
+  -webkit-transform-origin: 0 0;
+  -moz-transform-origin: 0 0;
+  -ms-transform-origin: 0 0;
+  -o-transform-origin: 0 0;
   box-shadow: inset 0 0 0 9999px rgba(0, 0, 0, 0.4);
   -webkit-box-shadow: inset 0 0 0 9999px rgba(0, 0, 0, 0.4);
   -mox-box-shadow: inset 0 0 0 9999px rgba(0, 0, 0, 0.4);
@@ -315,6 +316,11 @@ h1 span {
 .entity:after {
   width: 32px;
   background: #c6c6c6;
+  box-shadow: none;
+  -webkit-box-shadow: none;
+  -mox-box-shadow: none;
+  -ms-box-shadow: none;
+  -o-box-shadow: none;
 }
 .entity:before {
   transform: rotateX(0deg) rotateY(90deg) translateX(-50%) translateZ(32px);
@@ -337,11 +343,6 @@ h1 span {
   -moz-transform: rotateZ(180deg) translateZ(32px) rotateX(-90deg) translateX(-32px);
   -ms-transform: rotateZ(180deg) translateZ(32px) rotateX(-90deg) translateX(-32px);
   -o-transform: rotateZ(180deg) translateZ(32px) rotateX(-90deg) translateX(-32px);
-  box-shadow: inset 0 0 0 9999px rgba(0, 0, 0, 0.4);
-  -webkit-box-shadow: inset 0 0 0 9999px rgba(0, 0, 0, 0.4);
-  -mox-box-shadow: inset 0 0 0 9999px rgba(0, 0, 0, 0.4);
-  -ms-box-shadow: inset 0 0 0 9999px rgba(0, 0, 0, 0.4);
-  -o-box-shadow: inset 0 0 0 9999px rgba(0, 0, 0, 0.4);
 }
 .block.hide-top,
 .entity.hide-right {
@@ -357,6 +358,17 @@ h1 span {
 .block.hide-left:before,
 .block.hide-right:after {
   display: none;
+}
+.block.half {
+  transform: rotateY(-90deg) translateX(50%) rotateY(90deg);
+  -webkit-transform: rotateY(-90deg) translateX(50%) rotateY(90deg);
+  -moz-transform: rotateY(-90deg) translateX(50%) rotateY(90deg);
+  -ms-transform: rotateY(-90deg) translateX(50%) rotateY(90deg);
+  -o-transform: rotateY(-90deg) translateX(50%) rotateY(90deg);
+}
+.block.half:after,
+.block.half:before {
+  height: 32px;
 }
 .wall {
   height: 256px;
@@ -381,7 +393,11 @@ h1 span {
   -o-box-shadow: inset 0 0 0 9999px rgba(0, 0, 0, 0.4);
 }
 .wall.bottom {
-  bottom: -50%;
+  transform: translateY(384px) rotateX(-90deg) translateY(-256px);
+  -webkit-transform: translateY(384px) rotateX(-90deg) translateY(-256px);
+  -moz-transform: translateY(384px) rotateX(-90deg) translateY(-256px);
+  -ms-transform: translateY(384px) rotateX(-90deg) translateY(-256px);
+  -o-transform: translateY(384px) rotateX(-90deg) translateY(-256px);
 }
 .wall.left,
 .wall.right {
@@ -409,4 +425,68 @@ h1 span {
   -ms-transform-origin: 100% 100%;
   -o-transform-origin: 100% 100%;
   right: 0;
+}
+@-webkit-keyframes squishy {
+  50% {
+    transform: rotateY(-90deg) translateX(57.6px) rotateY(90deg);
+    -webkit-transform: rotateY(-90deg) translateX(57.6px) rotateY(90deg);
+    -moz-transform: rotateY(-90deg) translateX(57.6px) rotateY(90deg);
+    -ms-transform: rotateY(-90deg) translateX(57.6px) rotateY(90deg);
+    -o-transform: rotateY(-90deg) translateX(57.6px) rotateY(90deg);
+  }
+}
+@-webkit-keyframes squishy-half {
+  50% {
+    transform: rotateY(-90deg) translateX(28.8px) rotateY(90deg);
+    -webkit-transform: rotateY(-90deg) translateX(28.8px) rotateY(90deg);
+    -moz-transform: rotateY(-90deg) translateX(28.8px) rotateY(90deg);
+    -ms-transform: rotateY(-90deg) translateX(28.8px) rotateY(90deg);
+    -o-transform: rotateY(-90deg) translateX(28.8px) rotateY(90deg);
+  }
+}
+.block.animate-squishy {
+  animation: squishy 5s 0s ease-in-out infinite;
+  -webkit-animation: squishy 5s 0s ease-in-out infinite;
+  -moz-animation: squishy 5s 0s ease-in-out infinite;
+  -ms-animation: squishy 5s 0s ease-in-out infinite;
+  -o-animation: squishy 5s 0s ease-in-out infinite;
+}
+.block.half.animate-squishy {
+  animation: squishy-half 5s 0s ease-in-out infinite;
+  -webkit-animation: squishy-half 5s 0s ease-in-out infinite;
+  -moz-animation: squishy-half 5s 0s ease-in-out infinite;
+  -ms-animation: squishy-half 5s 0s ease-in-out infinite;
+  -o-animation: squishy-half 5s 0s ease-in-out infinite;
+}
+@-webkit-keyframes squishy-right {
+  50% {
+    transform: rotateZ(90deg) translateX(100%) translateX(-1px) rotateZ(-90deg) rotateX(-90deg) scale(1, 0.9);
+    -webkit-transform: rotateZ(90deg) translateX(100%) translateX(-1px) rotateZ(-90deg) rotateX(-90deg) scale(1, 0.9);
+    -moz-transform: rotateZ(90deg) translateX(100%) translateX(-1px) rotateZ(-90deg) rotateX(-90deg) scale(1, 0.9);
+    -ms-transform: rotateZ(90deg) translateX(100%) translateX(-1px) rotateZ(-90deg) rotateX(-90deg) scale(1, 0.9);
+    -o-transform: rotateZ(90deg) translateX(100%) translateX(-1px) rotateZ(-90deg) rotateX(-90deg) scale(1, 0.9);
+  }
+}
+.block.animate-squishy:after {
+  animation: squishy-right 5s 0s ease-in-out infinite;
+  -webkit-animation: squishy-right 5s 0s ease-in-out infinite;
+  -moz-animation: squishy-right 5s 0s ease-in-out infinite;
+  -ms-animation: squishy-right 5s 0s ease-in-out infinite;
+  -o-animation: squishy-right 5s 0s ease-in-out infinite;
+}
+@-webkit-keyframes squishy-left {
+  50% {
+    transform: rotateX(-90deg) rotateY(90deg) translateX(-100%) scale(1, 0.9);
+    -webkit-transform: rotateX(-90deg) rotateY(90deg) translateX(-100%) scale(1, 0.9);
+    -moz-transform: rotateX(-90deg) rotateY(90deg) translateX(-100%) scale(1, 0.9);
+    -ms-transform: rotateX(-90deg) rotateY(90deg) translateX(-100%) scale(1, 0.9);
+    -o-transform: rotateX(-90deg) rotateY(90deg) translateX(-100%) scale(1, 0.9);
+  }
+}
+.block.animate-squishy:before {
+  animation: squishy-left 5s 0s ease-in-out infinite;
+  -webkit-animation: squishy-left 5s 0s ease-in-out infinite;
+  -moz-animation: squishy-left 5s 0s ease-in-out infinite;
+  -ms-animation: squishy-left 5s 0s ease-in-out infinite;
+  -o-animation: squishy-left 5s 0s ease-in-out infinite;
 }

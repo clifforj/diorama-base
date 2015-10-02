@@ -15,7 +15,7 @@
 }
 
 .wall.bottom {
-  bottom: -50%;
+  .transform(translateY(@blockSize*@dioramaGridDepth) rotateX(-90deg) translateY(-(@dioramaLevelsAboveBase*@blockSize)));
 }
 
 .wall.left, .wall.right {

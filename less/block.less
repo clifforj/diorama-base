@@ -19,7 +19,7 @@
   content: '';
   position: absolute;
   height: @blockSize;
-  width: @blockSize+1;
+  width: @blockSize;
 }
 .panel, .block, .entity {
   position: relative;
@@ -30,8 +30,9 @@
   .preserve-3d();
 }
 .block:after, .entity:after {
-  .transform(rotateX(-90deg) translateY(100%));
-  .transform-origin(100% 100%);
+  width: @blockSize+1;
+  .transform(rotateZ(90deg) translateX(100%) translateX(-1px) rotateZ(-90deg) rotateX(-90deg));
+  .transform-origin(0 0);
   .box-shadow(inset 0 0 0 9999px hsla(0,0%,0%,.4));
 }
 .block:before, .entity:before {
@@ -63,6 +64,7 @@
 .entity:after {
   width: @blockSize/2;
   background: @entityDefaultBackground;
+  .box-shadow(none);
 }
 
 .entity:before {
@@ -76,7 +78,6 @@
 
 .entity {
   .transform(rotateZ(180deg) translateZ(@blockSize/2) rotateX(-90deg) translateX(-(@blockSize/2)));
-  .box-shadow(@blockRightShadow);
 }
 
 .block.hide-top, .entity.hide-right {
@@ -89,4 +90,13 @@
 .block.hide-left:before,
 .block.hide-right:after{
   display: none;
+}
+
+.block.half {
+  .transform(rotateY(-90deg) translateX(50%) rotateY(90deg));
+}
+
+.block.half:after,
+.block.half:before {
+  height: @blockSize/2;
 }

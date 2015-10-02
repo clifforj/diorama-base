@@ -7,11 +7,11 @@
 }
 
 .transform-origin(@origin) {
-  transform-origin: @origin;
+          transform-origin: @origin;
   -webkit-transform-origin: @origin;
-  -moz-transform-origin: @origin;
-  -ms-transform-origin: @origin;
-  -o-transform-origin: @origin;
+     -moz-transform-origin: @origin;
+      -ms-transform-origin: @origin;
+       -o-transform-origin: @origin;
 }
 
 .box-shadow(@shadow) {
@@ -28,4 +28,12 @@
      -moz-transform-style: preserve-3d;
       -ms-transform-style: preserve-3d;
        -o-transform-style: preserve-3d;
+}
+
+.animation(@animation) {
+          animation: @animation;
+  -webkit-animation: @animation;
+     -moz-animation: @animation;
+      -ms-animation: @animation;
+       -o-animation: @animation;
 }
