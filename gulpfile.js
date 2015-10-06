@@ -13,3 +13,7 @@ gulp.task('default', function () {
         .pipe(rename('diorama-base.min.css'))
         .pipe(gulp.dest('./css'));
 });
+
+gulp.task('watch', function () {
+    gulp.watch('./less/**/*.less' , ['default']);
+});
