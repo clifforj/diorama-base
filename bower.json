@@ -1,0 +1,23 @@
+{
+  "name": "Diorama-Base",
+  "version": "1.0.0",
+  "homepage": "https://github.com/clifforj/Diorama-Base",
+  "authors": [
+    "John Clifford @ilikepixels"
+  ],
+  "description": "A collection of CSS classes for producing 3D dioramas",
+  "main": "diorama-base.min.css",
+  "keywords": [
+    "diorama",
+    "3d",
+    "css"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
