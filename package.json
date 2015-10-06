@@ -1,0 +1,31 @@
+{
+  "name": "diorama-base",
+  "version": "1.0.0",
+  "description": "A collection of CSS classes for producing 3D dioramas",
+  "main": "diorama-base.min.css",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/clifforj/Diorama-Base.git"
+  },
+  "keywords": [
+    "diorama",
+    "3d",
+    "css"
+  ],
+  "author": "John Clifford",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/clifforj/Diorama-Base/issues"
+  },
+  "homepage": "https://github.com/clifforj/Diorama-Base#readme",
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-less": "^3.0.3",
+    "gulp-minify-css": "^1.2.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-watch": "^4.3.5"
+  }
+}

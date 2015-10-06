@@ -375,7 +375,7 @@ h1 span {
   width: 100%;
   float: left;
   position: absolute;
-  background: #ffffff;
+  background: white;
   transform: rotateX(-90deg) translateY(-256px);
   -webkit-transform: rotateX(-90deg) translateY(-256px);
   -moz-transform: rotateX(-90deg) translateY(-256px);
