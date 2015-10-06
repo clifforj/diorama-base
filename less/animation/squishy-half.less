@@ -1,0 +1,9 @@
+@-webkit-keyframes squishy-half {
+  50% {
+    .transform(rotateY(-90deg) translateX(@blockSize/2 * 0.9) rotateY(90deg));
+  }
+}
+
+.block.half.animate-squishy {
+  .animation(squishy-half 5s .0s ease-in-out infinite);
+}

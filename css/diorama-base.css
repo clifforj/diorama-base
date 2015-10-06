@@ -117,6 +117,7 @@ h1 span {
   -moz-transform: translateZ(0);
   -ms-transform: translateZ(0);
   -o-transform: translateZ(0);
+  z-index: 0;
 }
 .layer.above-1 {
   transform: translateZ(64px);
@@ -124,6 +125,7 @@ h1 span {
   -moz-transform: translateZ(64px);
   -ms-transform: translateZ(64px);
   -o-transform: translateZ(64px);
+  z-index: 100;
 }
 .layer.above-2 {
   transform: translateZ(128px);
@@ -131,6 +133,7 @@ h1 span {
   -moz-transform: translateZ(128px);
   -ms-transform: translateZ(128px);
   -o-transform: translateZ(128px);
+  z-index: 200;
 }
 .layer.above-3 {
   transform: translateZ(192px);
@@ -138,6 +141,7 @@ h1 span {
   -moz-transform: translateZ(192px);
   -ms-transform: translateZ(192px);
   -o-transform: translateZ(192px);
+  z-index: 300;
 }
 .layer.above-4 {
   transform: translateZ(256px);
@@ -145,6 +149,7 @@ h1 span {
   -moz-transform: translateZ(256px);
   -ms-transform: translateZ(256px);
   -o-transform: translateZ(256px);
+  z-index: 400;
 }
 .layer.below-1 {
   transform: translateZ(-64px);
@@ -152,6 +157,7 @@ h1 span {
   -moz-transform: translateZ(-64px);
   -ms-transform: translateZ(-64px);
   -o-transform: translateZ(-64px);
+  z-index: -100;
 }
 .layer.below-2 {
   transform: translateZ(-128px);
@@ -159,6 +165,7 @@ h1 span {
   -moz-transform: translateZ(-128px);
   -ms-transform: translateZ(-128px);
   -o-transform: translateZ(-128px);
+  z-index: -200;
 }
 .panel,
 .block,
@@ -359,6 +366,17 @@ h1 span {
 .block.hide-right:after {
   display: none;
 }
+.block.quarter {
+  transform: rotateY(-90deg) translateX(25%) rotateY(90deg);
+  -webkit-transform: rotateY(-90deg) translateX(25%) rotateY(90deg);
+  -moz-transform: rotateY(-90deg) translateX(25%) rotateY(90deg);
+  -ms-transform: rotateY(-90deg) translateX(25%) rotateY(90deg);
+  -o-transform: rotateY(-90deg) translateX(25%) rotateY(90deg);
+}
+.block.quarter:after,
+.block.quarter:before {
+  height: 16px;
+}
 .block.half {
   transform: rotateY(-90deg) translateX(50%) rotateY(90deg);
   -webkit-transform: rotateY(-90deg) translateX(50%) rotateY(90deg);
@@ -369,6 +387,17 @@ h1 span {
 .block.half:after,
 .block.half:before {
   height: 32px;
+}
+.block.three-quarters {
+  transform: rotateY(-90deg) translateX(75%) rotateY(90deg);
+  -webkit-transform: rotateY(-90deg) translateX(75%) rotateY(90deg);
+  -moz-transform: rotateY(-90deg) translateX(75%) rotateY(90deg);
+  -ms-transform: rotateY(-90deg) translateX(75%) rotateY(90deg);
+  -o-transform: rotateY(-90deg) translateX(75%) rotateY(90deg);
+}
+.block.three-quarters:after,
+.block.three-quarters:before {
+  height: 48px;
 }
 .wall {
   height: 256px;
@@ -435,28 +464,12 @@ h1 span {
     -o-transform: rotateY(-90deg) translateX(57.6px) rotateY(90deg);
   }
 }
-@-webkit-keyframes squishy-half {
-  50% {
-    transform: rotateY(-90deg) translateX(28.8px) rotateY(90deg);
-    -webkit-transform: rotateY(-90deg) translateX(28.8px) rotateY(90deg);
-    -moz-transform: rotateY(-90deg) translateX(28.8px) rotateY(90deg);
-    -ms-transform: rotateY(-90deg) translateX(28.8px) rotateY(90deg);
-    -o-transform: rotateY(-90deg) translateX(28.8px) rotateY(90deg);
-  }
-}
 .block.animate-squishy {
   animation: squishy 5s 0s ease-in-out infinite;
   -webkit-animation: squishy 5s 0s ease-in-out infinite;
   -moz-animation: squishy 5s 0s ease-in-out infinite;
   -ms-animation: squishy 5s 0s ease-in-out infinite;
   -o-animation: squishy 5s 0s ease-in-out infinite;
-}
-.block.half.animate-squishy {
-  animation: squishy-half 5s 0s ease-in-out infinite;
-  -webkit-animation: squishy-half 5s 0s ease-in-out infinite;
-  -moz-animation: squishy-half 5s 0s ease-in-out infinite;
-  -ms-animation: squishy-half 5s 0s ease-in-out infinite;
-  -o-animation: squishy-half 5s 0s ease-in-out infinite;
 }
 @-webkit-keyframes squishy-right {
   50% {
@@ -489,4 +502,20 @@ h1 span {
   -moz-animation: squishy-left 5s 0s ease-in-out infinite;
   -ms-animation: squishy-left 5s 0s ease-in-out infinite;
   -o-animation: squishy-left 5s 0s ease-in-out infinite;
+}
+@-webkit-keyframes squishy-half {
+  50% {
+    transform: rotateY(-90deg) translateX(28.8px) rotateY(90deg);
+    -webkit-transform: rotateY(-90deg) translateX(28.8px) rotateY(90deg);
+    -moz-transform: rotateY(-90deg) translateX(28.8px) rotateY(90deg);
+    -ms-transform: rotateY(-90deg) translateX(28.8px) rotateY(90deg);
+    -o-transform: rotateY(-90deg) translateX(28.8px) rotateY(90deg);
+  }
+}
+.block.half.animate-squishy {
+  animation: squishy-half 5s 0s ease-in-out infinite;
+  -webkit-animation: squishy-half 5s 0s ease-in-out infinite;
+  -moz-animation: squishy-half 5s 0s ease-in-out infinite;
+  -ms-animation: squishy-half 5s 0s ease-in-out infinite;
+  -o-animation: squishy-half 5s 0s ease-in-out infinite;
 }
