@@ -519,3 +519,35 @@ h1 span {
   -ms-animation: squishy-half 5s 0s ease-in-out infinite;
   -o-animation: squishy-half 5s 0s ease-in-out infinite;
 }
+@-webkit-keyframes squishy-quarter {
+  50% {
+    transform: rotateY(-90deg) translateX(12.8px) rotateY(90deg);
+    -webkit-transform: rotateY(-90deg) translateX(12.8px) rotateY(90deg);
+    -moz-transform: rotateY(-90deg) translateX(12.8px) rotateY(90deg);
+    -ms-transform: rotateY(-90deg) translateX(12.8px) rotateY(90deg);
+    -o-transform: rotateY(-90deg) translateX(12.8px) rotateY(90deg);
+  }
+}
+.block.quarter.animate-squishy {
+  animation: squishy-quarter 5s 0s ease-in-out infinite;
+  -webkit-animation: squishy-quarter 5s 0s ease-in-out infinite;
+  -moz-animation: squishy-quarter 5s 0s ease-in-out infinite;
+  -ms-animation: squishy-quarter 5s 0s ease-in-out infinite;
+  -o-animation: squishy-quarter 5s 0s ease-in-out infinite;
+}
+@-webkit-keyframes squishy-three-quarters {
+  50% {
+    transform: rotateY(-90deg) translateX(43.2px) rotateY(90deg);
+    -webkit-transform: rotateY(-90deg) translateX(43.2px) rotateY(90deg);
+    -moz-transform: rotateY(-90deg) translateX(43.2px) rotateY(90deg);
+    -ms-transform: rotateY(-90deg) translateX(43.2px) rotateY(90deg);
+    -o-transform: rotateY(-90deg) translateX(43.2px) rotateY(90deg);
+  }
+}
+.block.three-quarters.animate-squishy {
+  animation: squishy-three-quarters 5s 0s ease-in-out infinite;
+  -webkit-animation: squishy-three-quarters 5s 0s ease-in-out infinite;
+  -moz-animation: squishy-three-quarters 5s 0s ease-in-out infinite;
+  -ms-animation: squishy-three-quarters 5s 0s ease-in-out infinite;
+  -o-animation: squishy-three-quarters 5s 0s ease-in-out infinite;
+}

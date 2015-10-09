@@ -1,0 +1,9 @@
+@-webkit-keyframes squishy-three-quarters {
+  50% {
+    .transform(rotateY(-90deg) translateX((@blockSize*0.75) * 0.9) rotateY(90deg));
+  }
+}
+
+.block.three-quarters.animate-squishy {
+  .animation(squishy-three-quarters 5s .0s ease-in-out infinite);
+}
