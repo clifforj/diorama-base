@@ -6,6 +6,11 @@
 .entity:after,
 .entity:before {
   float: left;
+}
+
+.panel,
+.block,
+.entity {
   background: @blockDefaultBackground;
 }
 
@@ -18,6 +23,7 @@
   position: absolute;
   height: @blockSize;
   width: @blockSize;
+  background: inherit;
 }
 .panel, .block, .entity {
   position: relative;
