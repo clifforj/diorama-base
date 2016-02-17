@@ -1,10 +1,18 @@
-html,
-body {
+/*
+ * - Utility Mixins
+ */
+/*
+ * - Viewer
+ *
+ * An optional viewer class for displaying full screen dioramas
+ */
+html.diorama-viewer,
+.diorama-viewer body {
   height: 100%;
   width: 100%;
   min-height: 100%;
 }
-body {
+.diorama-viewer body {
   font-size: 100%;
   margin: 0;
   text-align: center;
@@ -12,7 +20,7 @@ body {
   background: #f5f5f5;
   font-family: sans-serif;
 }
-body:before {
+.diorama-viewer body:before {
   content: '';
   width: 0;
   font-size: 0;
@@ -20,7 +28,7 @@ body:before {
   display: inline-block;
   vertical-align: middle;
 }
-h1 {
+.diorama-viewer h1 {
   position: absolute;
   bottom: 0;
   display: block;
@@ -30,11 +38,11 @@ h1 {
   font-weight: normal;
   font-size: 2.5em;
 }
-h1 small {
+.diorama-viewer h1 small {
   font-size: 0.7em;
   color: #888;
 }
-h1 span {
+.diorama-viewer h1 span {
   position: absolute;
   padding: 0;
   margin: 0;
@@ -44,19 +52,26 @@ h1 span {
   padding-right: 10px;
   color: #888;
 }
-#diorama {
+/*
+ * - Base
+ *
+ * These classes are the base of any diorama.
+ */
+.diorama {
   width: 720px;
   height: 480px;
   position: relative;
-  display: inline-block;
-  vertical-align: middle;
   transform: rotateX(60deg) rotateZ(-28deg) translateZ(0px);
   -webkit-transform: rotateX(60deg) rotateZ(-28deg) translateZ(0px);
   -moz-transform: rotateX(60deg) rotateZ(-28deg) translateZ(0px);
   -ms-transform: rotateX(60deg) rotateZ(-28deg) translateZ(0px);
   -o-transform: rotateX(60deg) rotateZ(-28deg) translateZ(0px);
 }
-#diorama,
+.diorama-viewer .diorama {
+  display: inline-block;
+  vertical-align: middle;
+}
+.diorama,
 .layer {
   transform-style: preserve-3d;
   -webkit-transform-style: preserve-3d;
@@ -64,7 +79,7 @@ h1 span {
   -ms-transform-style: preserve-3d;
   -o-transform-style: preserve-3d;
 }
-#diorama.guide {
+.diorama.guide {
   background: linear-gradient(left, rgba(0, 0, 0, 0.1) 1.5%, transparent 1.5%, transparent 98.5%, rgba(0, 0, 0, 0.1) 98.5%), linear-gradient(rgba(0, 0, 0, 0.1) 1.5%, transparent 1.5%, transparent 98.5%, rgba(0, 0, 0, 0.1) 98.5%);
   background: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.1) 1.5%, transparent 1.5%, transparent 98.5%, rgba(0, 0, 0, 0.1) 98.5%), -webkit-linear-gradient(rgba(0, 0, 0, 0.1) 1.5%, transparent 1.5%, transparent 98.5%, rgba(0, 0, 0, 0.1) 98.5%);
   background: -moz-linear-gradient(left, rgba(0, 0, 0, 0.1) 1.5%, transparent 1.5%, transparent 98.5%, rgba(0, 0, 0, 0.1) 98.5%), -moz-linear-gradient(rgba(0, 0, 0, 0.1) 1.5%, transparent 1.5%, transparent 98.5%, rgba(0, 0, 0, 0.1) 98.5%);
@@ -199,6 +214,11 @@ h1 span {
   -o-transform: translateZ(-144px);
   z-index: -300;
 }
+/*
+ * - Block/Entity Styles
+ *
+ * These classes are the main building blocks of a diorama.
+ */
 .panel,
 .block,
 .block:after,
@@ -211,7 +231,12 @@ h1 span {
 .panel,
 .block,
 .entity {
-  background: #c6c6c6;
+  background-color: #c6c6c6;
+  background-repeat: no-repeat;
+}
+.panel,
+.block {
+  background-size: 100% 100%;
 }
 .block:after,
 .block:before,
@@ -241,6 +266,24 @@ h1 span {
   -ms-transform-style: preserve-3d;
   -o-transform-style: preserve-3d;
 }
+.block:before,
+.entity:before {
+  transform: rotateX(-90deg) rotateY(90deg) translateX(-100%);
+  -webkit-transform: rotateX(-90deg) rotateY(90deg) translateX(-100%);
+  -moz-transform: rotateX(-90deg) rotateY(90deg) translateX(-100%);
+  -ms-transform: rotateX(-90deg) rotateY(90deg) translateX(-100%);
+  -o-transform: rotateX(-90deg) rotateY(90deg) translateX(-100%);
+  transform-origin: 0% 0%;
+  -webkit-transform-origin: 0% 0%;
+  -moz-transform-origin: 0% 0%;
+  -ms-transform-origin: 0% 0%;
+  -o-transform-origin: 0% 0%;
+  box-shadow: inset 0 0 0 9999px rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: inset 0 0 0 9999px rgba(0, 0, 0, 0.2);
+  -mox-box-shadow: inset 0 0 0 9999px rgba(0, 0, 0, 0.2);
+  -ms-box-shadow: inset 0 0 0 9999px rgba(0, 0, 0, 0.2);
+  -o-box-shadow: inset 0 0 0 9999px rgba(0, 0, 0, 0.2);
+}
 .block:after,
 .entity:after {
   width: 49px;
@@ -259,24 +302,6 @@ h1 span {
   -mox-box-shadow: inset 0 0 0 9999px rgba(0, 0, 0, 0.4);
   -ms-box-shadow: inset 0 0 0 9999px rgba(0, 0, 0, 0.4);
   -o-box-shadow: inset 0 0 0 9999px rgba(0, 0, 0, 0.4);
-}
-.block:before,
-.entity:before {
-  transform: rotateX(-90deg) rotateY(90deg) translateX(-100%);
-  -webkit-transform: rotateX(-90deg) rotateY(90deg) translateX(-100%);
-  -moz-transform: rotateX(-90deg) rotateY(90deg) translateX(-100%);
-  -ms-transform: rotateX(-90deg) rotateY(90deg) translateX(-100%);
-  -o-transform: rotateX(-90deg) rotateY(90deg) translateX(-100%);
-  transform-origin: 0% 0%;
-  -webkit-transform-origin: 0% 0%;
-  -moz-transform-origin: 0% 0%;
-  -ms-transform-origin: 0% 0%;
-  -o-transform-origin: 0% 0%;
-  box-shadow: inset 0 0 0 9999px rgba(0, 0, 0, 0.2);
-  -webkit-box-shadow: inset 0 0 0 9999px rgba(0, 0, 0, 0.2);
-  -mox-box-shadow: inset 0 0 0 9999px rgba(0, 0, 0, 0.2);
-  -ms-box-shadow: inset 0 0 0 9999px rgba(0, 0, 0, 0.2);
-  -o-box-shadow: inset 0 0 0 9999px rgba(0, 0, 0, 0.2);
 }
 .panel.shadow,
 .block.shadow {
@@ -382,14 +407,18 @@ h1 span {
   position: absolute;
   left: 720px;
 }
-.block:last-child:after {
-  width: 100%;
+.entity {
+  background-color: #c6c6c6;
+  background-size: 200% 100%;
+}
+.entity:before,
+.entity:after {
+  background: inherit;
 }
 .entity,
 .entity:before,
 .entity:after {
   width: 24px;
-  background: #c6c6c6;
   box-shadow: none;
   -webkit-box-shadow: none;
   -mox-box-shadow: none;
@@ -403,6 +432,7 @@ h1 span {
   -ms-transform: rotateX(0deg) rotateY(90deg) translateX(-50%) translateZ(24px);
   -o-transform: rotateX(0deg) rotateY(90deg) translateX(-50%) translateZ(24px);
   width: 48px;
+  background-size: 100% 100%;
 }
 .entity:after {
   transform: translateX(24px);
@@ -410,6 +440,8 @@ h1 span {
   -moz-transform: translateX(24px);
   -ms-transform: translateX(24px);
   -o-transform: translateX(24px);
+  background-size: 200% 100%;
+  background-position: 100%;
 }
 .entity {
   transform: rotateZ(180deg) translateZ(24px) rotateX(-90deg) translateX(-24px);
@@ -433,6 +465,9 @@ h1 span {
 .block.hide-right:after {
   display: none;
 }
+/*
+ * - Quarter Height Blocks
+ */
 .block.quarter {
   transform: rotateY(-90deg) translateX(25%) rotateY(90deg);
   -webkit-transform: rotateY(-90deg) translateX(25%) rotateY(90deg);
@@ -444,6 +479,9 @@ h1 span {
 .block.quarter:before {
   height: 12px;
 }
+/*
+ * - Half Height Blocks
+ */
 .block.half {
   transform: rotateY(-90deg) translateX(50%) rotateY(90deg);
   -webkit-transform: rotateY(-90deg) translateX(50%) rotateY(90deg);
@@ -455,6 +493,9 @@ h1 span {
 .block.half:before {
   height: 24px;
 }
+/*
+ * - Three-Quarter Height Blocks
+ */
 .block.three-quarters {
   transform: rotateY(-90deg) translateX(75%) rotateY(90deg);
   -webkit-transform: rotateY(-90deg) translateX(75%) rotateY(90deg);
@@ -466,12 +507,18 @@ h1 span {
 .block.three-quarters:before {
   height: 36px;
 }
+/*
+ * - Walls
+ *
+ * These walls scale to the height of your diorama and are used to wrap
+ * the edges with an element that you can then apply a background to.
+ */
 .wall {
   height: 240px;
   width: 100%;
   float: left;
   position: absolute;
-  background: white;
+  background-color: white;
   transform: rotateX(-90deg) translateY(-240px);
   -webkit-transform: rotateX(-90deg) translateY(-240px);
   -moz-transform: rotateX(-90deg) translateY(-240px);
@@ -522,6 +569,12 @@ h1 span {
   -o-transform-origin: 100% 100%;
   right: 0;
 }
+/*
+ * - Squishy Animation
+ *
+ * This animation will make a block squish up and down by a small amount
+ *
+ */
 @-webkit-keyframes squishy {
   50% {
     transform: rotateY(-90deg) translateX(43.2px) rotateY(90deg);
@@ -570,6 +623,9 @@ h1 span {
   -ms-animation: squishy-left 5s 0s ease-in-out infinite;
   -o-animation: squishy-left 5s 0s ease-in-out infinite;
 }
+/*
+ * - Squishy Animation (for half blocks)
+ */
 @-webkit-keyframes squishy-half {
   50% {
     transform: rotateY(-90deg) translateX(21.6px) rotateY(90deg);
@@ -586,6 +642,9 @@ h1 span {
   -ms-animation: squishy-half 5s 0s ease-in-out infinite;
   -o-animation: squishy-half 5s 0s ease-in-out infinite;
 }
+/*
+ * - Squishy Animation (for quarter blocks)
+ */
 @-webkit-keyframes squishy-quarter {
   50% {
     transform: rotateY(-90deg) translateX(9.6px) rotateY(90deg);
@@ -602,6 +661,9 @@ h1 span {
   -ms-animation: squishy-quarter 5s 0s ease-in-out infinite;
   -o-animation: squishy-quarter 5s 0s ease-in-out infinite;
 }
+/*
+ * - Squishy Animation (for three-quarter blocks)
+ */
 @-webkit-keyframes squishy-three-quarters {
   50% {
     transform: rotateY(-90deg) translateX(32.4px) rotateY(90deg);

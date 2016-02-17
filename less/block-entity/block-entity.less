@@ -1,0 +1,138 @@
+/*
+ * - Block/Entity Styles
+ *
+ * These classes are the main building blocks of a diorama.
+ */
+.panel,
+.block,
+.block:after,
+.block:before,
+.entity,
+.entity:after,
+.entity:before {
+  float: left;
+}
+
+.panel,
+.block,
+.entity {
+  background-color: @blockDefaultBackground;
+  background-repeat: no-repeat;
+}
+
+// This style causes the assigned image to be scaled to the
+// full size of the block.
+.panel,
+.block {
+  background-size: 100% 100%;
+}
+
+.block:after,
+.block:before,
+.entity:after,
+.entity:before {
+  display: block;
+  content: '';
+  position: absolute;
+  height: @blockSize;
+  width: @blockSize;
+  background: inherit;
+}
+
+// The 'tops' of blocks/panels. Entities have some overrides further down
+.panel, .block, .entity {
+  position: relative;
+  height: @blockSize;
+  width: @blockSize;
+
+  .transform(rotateY(-90deg) translateX(100%) rotateY(90deg));
+  .preserve-3d();
+}
+
+// The left hand face of blocks/entities
+.block:before, .entity:before {
+  .transform(rotateX(-90deg) rotateY(90deg) translateX(-100%));
+  .transform-origin(0% 0%);
+  .box-shadow(inset 0 0 0 9999px hsla(0,0%,0%,.2));
+}
+
+// The right hand face of blocks/entities
+.block:after, .entity:after {
+  width: @blockSize+1; // 1 is added to compensate for gaps caused by sub-pixels
+  .transform(rotateZ(90deg) translateX(100%) translateX(-1px) rotateZ(-90deg) rotateX(-90deg));
+  .transform-origin(0 0);
+  .box-shadow(inset 0 0 0 9999px hsla(0,0%,0%,.4));
+}
+
+// Adds a shadow to the top of a block/panel
+.panel.shadow, .block.shadow {
+  .box-shadow(inset 0 0 0 9999px hsla(0,0%,0%,.15));
+}
+
+// Generate classes to position blocks/panels/entities at any step along a row
+.block-positions(@dioramaGridWidth);
+.block-positions(@n, @i: 0) when (@i =< @n) {
+  .panel.pos-@{i}, .block.pos-@{i}, .entity.pos-@{i} {
+    position: absolute;
+    left: @i*@blockSize;
+  }
+  .block-positions(@n, (@i + 1));
+}
+
+// Entities don't have "tops". Instead, the root element of an entity is halved and
+// used as part of the right face, with the :after being the other half.
+.entity {
+  background-color: @entityDefaultBackground;
+  background-size: 200% 100%;
+}
+
+// Inherit the roots background, makes it easier to set a single image on the entity
+.entity:before,
+.entity:after {
+  background: inherit;
+}
+
+
+// Clear any shadows and set things to be half width
+.entity,
+.entity:before,
+.entity:after {
+  width: @blockSize/2;
+  .box-shadow(none);
+}
+
+// The left face will be full width. The root element and the after get placed below and on top
+// to create the desired effect
+.entity:before {
+  .transform(rotateX(0deg) rotateY(90deg) translateX(-50%) translateZ(@blockSize/2));
+  width: @blockSize;
+  background-size: 100% 100%;
+}
+
+// The 'top' part of the right face
+.entity:after {
+  .transform(translateX(@blockSize/2));
+  background-size: 200% 100%;
+  background-position: 100%;
+}
+
+// the 'bottom' part of the right face
+.entity {
+  .transform(rotateZ(180deg) translateZ(@blockSize/2) rotateX(-90deg) translateX(-(@blockSize/2)));
+}
+
+// Hide the top face. For entities this applies for hiding the right face. If you use this for entities
+// you'll need to make sure that your background is set on the pseudo elements too.
+.block.hide-top, .entity.hide-right {
+  background: none;
+  .box-shadow(none);
+}
+
+// Hide other faces
+.entity.hide-left:before,
+.entity.hide-right:after,
+.block.hide-left:before,
+.block.hide-right:after{
+  display: none;
+}
+
