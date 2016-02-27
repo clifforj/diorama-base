@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="diorama-viewer">
 <head>
     <meta charset="UTF-8">
     <title>Diorama Base Example</title>
@@ -10,23 +10,36 @@
         body {
             font-family: 'Open Sans', sans-serif;
         }
+
+        .orange {
+            background-color: #bc7b19;
+        }
+        
+        .orange:after {
+            background-color: #bc7b19;
+        }
+
+        .orange:before {
+            background-color: #FFA719;
+        }
+
     </style>
 
 </head>
 <body>
-    <div id="diorama" class="guide">
+    <div class="diorama guide">
         <div class="layer above-2">
-            <div class="row">
+            <div class="d-row">
                 <div class="block pos-2 half animate-squishy"></div>
             </div>
         </div>
         <div class="layer above-1">
-            <div class="row pos-4">
-                <div class="entity pos-3"></div>
+            <div class="d-row pos-4">
+                <div class="orange entity pos-3"></div>
             </div>
         </div>
         <div class="layer base">
-            <div class="row">
+            <div class="d-row">
                 <div class="block"></div>
                 <div class="block"></div>
                 <div class="block shadow"></div>
@@ -38,7 +51,7 @@
                 <div class="block half"></div>
                 <div class="block half"></div>
             </div>
-            <div class="row">
+            <div class="d-row">
                 <div class="block"></div>
                 <div class="block"></div>
                 <div class="block"></div>
@@ -48,7 +61,7 @@
                 <div class="block half pos-8"></div>
                 <div class="block half pos-9"></div>
             </div>
-            <div class="row">
+            <div class="d-row">
                 <div class="block"></div>
                 <div class="block"></div>
                 <div class="block"></div>
@@ -58,7 +71,7 @@
                 <div class="block half pos-9"></div>
                 <div class="block half pos-8"></div>
             </div>
-            <div class="row">
+            <div class="d-row">
                 <div class="block"></div>
                 <div class="block"></div>
                 <div class="block"></div>
@@ -67,7 +80,7 @@
                 <div class="block"></div>
                 <div class="block"></div>
             </div>
-            <div class="row">
+            <div class="d-row">
                 <div class="block"></div>
                 <div class="block"></div>
                 <div class="block"></div>
@@ -75,7 +88,7 @@
                 <div class="block"></div>
                 <div class="block"></div>
             </div>
-            <div class="row">
+            <div class="d-row">
                 <div class="block"></div>
                 <div class="block"></div>
                 <div class="block"></div>
