@@ -4,7 +4,7 @@ var gulp = require('gulp'),
     watch = require('gulp-watch'),
     rename = require('gulp-rename');
 
-gulp.task('default', function () {
+function build() {
     gulp.src('./less/diorama-base.less')
         .pipe(less())
         .pipe(rename('diorama-base.css'))
@@ -12,8 +12,13 @@ gulp.task('default', function () {
         .pipe(minify())
         .pipe(rename('diorama-base.min.css'))
         .pipe(gulp.dest('./css'));
+}
+
+gulp.task('default', function () {
+    build();
 });
 
 gulp.task('watch', function () {
+    build();
     gulp.watch('./less/**/*.less' , ['default']);
 });
