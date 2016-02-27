@@ -1,7 +1,7 @@
 Diorama-Base
 ============
 
-A CSS base for building 3D dioramas
+A CSS base for building 3D dioramas. This only works for Chrome and Safari at the moment. (had some issues getting it to work with Firefox :( )
 
 [There's an example minecraft one here](https://clifforj.github.io/diorama/)
 
